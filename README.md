@@ -1,5 +1,9 @@
-A Solo Project for CodingDojo program
+Name: William Hendershot
+Project: A Solo Project for CodingDojo program
+Stack: React, Express, WordPress, MySQL, Docker
+GitHub: https://github.com/whendershot/masahiro_seikotsuin_site.git/
 
+Description:
 A simple site for a Japanese seikotsuin practice, a chiropractor.
 
 Key Wants:
@@ -13,7 +17,7 @@ Nice to haves:
 
 Learning Goals:
 -WordPress with a React front end rendering system
-    -Wordpress "headless" mode with Frontify(?)
+    -Wordpress "headless" mode with Frontity(?)
     -WordPress to allow easier content updating by business owner.
 -Test Driven Development in JavaScript
     -No goal for WordPress testing kit at this time
@@ -23,3 +27,12 @@ Learning Goals:
 -Integrating Line API services into a React site to allow customers to call in from a QR code or link on site.
     -Possibly allow sign-in authentication services with Line?
 -Desktop and mobile site versions
+
+Week 1 features:
+-Generate Docker compose files for frontend, WordPress, and MySql servers.
+-Install WordPress and setup headless mode
+-Create login, signup, and landing pages
+
+Week 2 features:
+-Line API integration
+-Clean up CSS styling
