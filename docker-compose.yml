@@ -5,6 +5,7 @@ volumes:
   data_store:
   client_store:
     external: true
+    name: solo_project_client_store
 
 services:
   wordpress:
