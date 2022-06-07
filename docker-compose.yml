@@ -1,0 +1,50 @@
+version: "3.9"
+
+volumes:
+  wordpress_store:
+  data_store:
+    
+
+services:
+  wordpress:
+    image: wordpress
+    restart: always
+    ports: 
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+    volumes:
+      - wordpress_store:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0.29
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3300:3306"
+    volumes:
+      - data_store:/var/lib/mysql
+
+  frontend:
+    build:
+      context: ./client_server
+      dockerfile: client.Dockerfile
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client_server:/code
+    command: bash -c "
+        tail -f /dev/null
+      "

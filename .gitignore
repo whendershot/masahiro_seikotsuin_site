@@ -1,4 +1,5 @@
 examples/
+*.zip
 
 ### dotenv ###
 .env
