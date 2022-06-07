@@ -1,0 +1,75 @@
+{
+  "errors": [],
+  "warnings": [],
+  "hash": "db91af77d9e8fe8551cc",
+  "publicPath": "",
+  "outputPath": "/code/masahiro_seikotsuin_site/client_server/my_test_app/build/static",
+  "assetsByChunkName": {
+    "list": "list.module.js",
+    "my-test-app": "my-test-app.module.js"
+  },
+  "assets": [
+    {
+      "name": "list.module.js",
+      "size": 47453,
+      "chunks": [
+        "list"
+      ],
+      "chunkNames": [
+        "list"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "my-test-app.module.js",
+      "size": 6895855,
+      "chunks": [
+        "my-test-app"
+      ],
+      "chunkNames": [
+        "my-test-app"
+      ],
+      "info": {},
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "namedChunkGroups": {
+    "my-test-app": {
+      "chunks": [
+        "my-test-app"
+      ],
+      "assets": [
+        "my-test-app.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "list": {
+      "chunks": [
+        "list"
+      ],
+      "assets": [
+        "list.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "generator": "loadable-components",
+  "chunks": [
+    {
+      "id": "list",
+      "files": [
+        "list.module.js"
+      ]
+    },
+    {
+      "id": "my-test-app",
+      "files": [
+        "my-test-app.module.js"
+      ]
+    }
+  ]
+}
