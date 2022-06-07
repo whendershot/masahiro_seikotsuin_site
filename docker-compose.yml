@@ -3,7 +3,8 @@ version: "3.9"
 volumes:
   wordpress_store:
   data_store:
-    
+  client_store:
+    external: true
 
 services:
   wordpress:
@@ -44,7 +45,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./client_server:/code
+      - client_store:/code
     command: bash -c "
         tail -f /dev/null
       "
