@@ -15,7 +15,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "http://wordpress"
+          "url": "https://test.frontity.org"
         }
       }
     },
