@@ -1,5 +1,7 @@
 examples/
 *.zip
+build/
+node_modules/
 
 ### dotenv ###
 .env
