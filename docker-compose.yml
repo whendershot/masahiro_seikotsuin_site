@@ -33,6 +33,8 @@ services:
       - "3300:3306"
     volumes:
       - data_store:/var/lib/mysql
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
 
   frontend:
     build:
