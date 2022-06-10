@@ -48,7 +48,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./client_server:/code
+      - client_store:/code
+      - wordpress_store:/wordpress
     command: bash -c "
         tail -f /dev/null
       "
