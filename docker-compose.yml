@@ -3,7 +3,9 @@ version: "3.9"
 volumes:
   wordpress_store:
   data_store:
-    
+  client_store:
+    external: true
+    name: solo_project_client_store
 
 services:
   wordpress:
