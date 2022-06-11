@@ -51,5 +51,6 @@ services:
       - client_store:/code
       - wordpress_store:/wordpress
     command: bash -c "
-        tail -f /dev/null
+        cd /code/masahiro_seikotsuin_site/client_server/client &&
+        npx frontity dev
       "
