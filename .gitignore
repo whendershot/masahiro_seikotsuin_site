@@ -2,6 +2,7 @@ examples/
 *.zip
 build/
 node_modules/
+site_resources/
 
 ### dotenv ###
 .env
