@@ -19,10 +19,11 @@
   "dependencies": {
     "@frontity/core": "^1.16.0",
     "@frontity/html2react": "^1.7.0",
-    
     "@frontity/tiny-router": "^1.4.4",
     "@frontity/wp-source": "^1.11.7",
+    "axios": "^0.27.2",
     "frontity": "^1.17.2",
-    "main-theme": "file:packages/main-theme"
+    "main-theme": "file:packages/main-theme",
+    "react-router-dom": "^6.3.0"
   }
 }

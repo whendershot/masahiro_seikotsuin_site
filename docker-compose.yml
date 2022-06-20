@@ -47,10 +47,13 @@ services:
       - db
     ports:
       - "3000:3000"
+      - "2580:2580"
     volumes:
       - client_store:/code
       - wordpress_store:/wordpress
     command: bash -c "
-        cd /code/masahiro_seikotsuin_site/client_server/client &&
-        npx frontity dev
+        cd /code/masahiro_seikotsuin_site/client_server/client  &&
+        npx frontity dev & &&
+        cd /code/masahiro_seikotsuin_site/server && 
+        node server.js
       "

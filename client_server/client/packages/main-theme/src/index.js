@@ -1,4 +1,5 @@
 import Root from "./components"
+import MetaSliderProcessor from "./components/metaslider/metaslider.processor"
 
 const mainTheme = {
   name: "main-theme",
@@ -6,10 +7,24 @@ const mainTheme = {
     theme: Root
   },
   state: {
-    theme: {}
+    theme: {
+      // autoPrefetch: "in-view"
+    }
+  },
+  source: {
+    data: {
+      "/appointments/create/" : {
+        isReady: true
+      }
+    }
   },
   actions: {
     theme: {}
+  },
+  libraries: {
+    html2react: {
+      processors: [MetaSliderProcessor]
+    }
   }
 }
 
