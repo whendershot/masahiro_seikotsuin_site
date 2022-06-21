@@ -66,3 +66,49 @@ module.exports.create = (req, res) => {
         }
     )
 }
+
+module.exports.updateById = (req, res) => {
+    console.dir("Inbound Edit")
+    db.pool.getConnection(
+        (err, conn) => {
+            const query = conn.query(
+                `UPDATE appointments
+                SET
+                    dateTime = ?,
+                    duration = ?,
+                    clientName = ?
+                WHERE
+                    id = ?
+                LIMIT 1
+                ;`,
+                [req.body.dateTime, req.body.duration, req.body.clientName, req.body.id],
+                (error, result) => {
+                    if (error) {console.trace(error)}
+                    console.log(JSON.stringify(result))
+                }
+            )
+            if (err) { console.log(err) }
+            console.dir(query.sql)
+            conn.release()
+        }
+    )
+}
+
+module.exports.deleteById = (req, res) => {
+    console.dir("Inbound Delete")
+    db.pool.getConnection(
+        (err, conn) => {
+            const query = conn.query(
+                `DELETE FROM appointments WHERE id = ? LIMIT 1;`,
+                [req.body.id],
+                (error, result) => {
+                    if (error) {console.log(error)}
+                    console.log(JSON.stringify(result))
+                }
+            )
+            if (err) { console.log(err) }
+            console.dir(query.sql)
+            conn.release()
+        }
+    )
+}

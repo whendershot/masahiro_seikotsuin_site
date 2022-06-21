@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import Link from "@frontity/components/link"
 // import {usenavigate} from "react-router-dom"
 
 const AppointmentForm = (props) => {
@@ -10,7 +11,7 @@ const AppointmentForm = (props) => {
         appointment
     } = props
 
-    const [_dateTime, setDateTime] = useState(Date(appointment?.dateTime).toISOString().slice(0, 19) || "")
+    const [_dateTime, setDateTime] = useState(appointment?.dateTime.slice(0, 16) || "")
     const [_duration, setDuration] = useState(appointment?.duration || 30)
     const [_clientName, setClientName] = useState(appointment?.clientName || "")
     const [_isEditable, setIsEditable] = useState(isEditable)
@@ -18,6 +19,7 @@ const AppointmentForm = (props) => {
     const onSubmitHandler = (e) => {
         e.preventDefault()
         onSubmit({
+            id: appointment.id,
             dateTime: formatToMySQLDateTime(_dateTime),
             duration: _duration,
             clientName: _clientName
@@ -54,12 +56,19 @@ const AppointmentForm = (props) => {
                 </div>
                 { errors?.dateTime && <p className="text-danger row mb-3">{errors.dateTime.message}</p> }
                 <div className="row">
-                    <div className="col-sm-2">
-                        <button className="btn btn-primary" onClick={() => navigate("/")}>Cancel</button>
-                    </div>
-                    <div className="col-sm-2">
-                        <button className="btn btn-primary" type="submit">Submit</button>
-                    </div>
+                    {
+                    isEditable ?
+                    appointment ?
+                    <button className="btn btn-primary" type="submit">Submit</button>
+                    :
+                    <button className="btn btn-primary" type="submit">Edit</button>
+                    :
+                    <Link link={`/appointments/${appointment.id}/edit`}>
+                        <button className="btn btn-primary" type="button">
+                            Edit
+                        </button>
+                    </Link>
+                    }
                 </div>
             </form>
         </div>

@@ -34,7 +34,16 @@ const mainTheme = {
               id: params.id,
               isAppointment: true
             }
-            console.dir("I have been handled!")
+          }
+        },
+        {
+          pattern : "/appointments/:id/edit",
+          func: ({ state, link, params }) => {
+            state.source.data[link] = {
+              id: params.id,
+              isAppointment: true,
+              isEditing: true
+            }
           }
         }
       ]
