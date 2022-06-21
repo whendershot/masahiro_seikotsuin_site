@@ -53,7 +53,5 @@ services:
       - wordpress_store:/wordpress
     command: bash -c "
         cd /code/masahiro_seikotsuin_site/client_server/client  &&
-        npx frontity dev & &&
-        cd /code/masahiro_seikotsuin_site/server && 
-        nodemon server.js
+        npx frontity dev 
       "
