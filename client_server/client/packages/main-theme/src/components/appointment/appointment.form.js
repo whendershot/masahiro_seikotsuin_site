@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import {usenavigate} from "react-router-dom"
+// import {usenavigate} from "react-router-dom"
 
 const AppointmentForm = (props) => {
 
@@ -10,7 +10,7 @@ const AppointmentForm = (props) => {
         appointment
     } = props
 
-    const [_dateTime, setDateTime] = useState(appointment?.dateTime || "")
+    const [_dateTime, setDateTime] = useState(Date(appointment?.dateTime).toISOString().slice(0, 19) || "")
     const [_duration, setDuration] = useState(appointment?.duration || 30)
     const [_clientName, setClientName] = useState(appointment?.clientName || "")
     const [_isEditable, setIsEditable] = useState(isEditable)
@@ -27,6 +27,7 @@ const AppointmentForm = (props) => {
     const formatToMySQLDateTime = (aDate) => {
         return new Date(aDate).toISOString().slice(0, 19).replace("T", " ")
     }
+
 
     return (
         <div className="container card">

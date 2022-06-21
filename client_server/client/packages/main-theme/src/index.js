@@ -9,19 +9,36 @@ const mainTheme = {
   state: {
     theme: {
       // autoPrefetch: "in-view"
-    }
-  },
-  source: {
-    data: {
-      "/appointments/create/" : {
-        isReady: true
+    },
+    source: {
+      data: {
+        "/appointments/create/" : {
+          isReady: true
+        },
+        "/appointments/" : {
+          isReady: true
+        }
       }
-    }
+  },
   },
   actions: {
     theme: {}
   },
   libraries: {
+    source: {
+      handlers: [
+        {
+          pattern : "/appointments/:id",
+          func: ({ state, link, params }) => {
+            state.source.data[link] = {
+              id: params.id,
+              isAppointment: true
+            }
+            console.dir("I have been handled!")
+          }
+        }
+      ]
+    },
     html2react: {
       processors: [MetaSliderProcessor]
     }

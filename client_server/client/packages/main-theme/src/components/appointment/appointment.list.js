@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "@frontity/components/link"
 
 const AppointmentList = (props) => {
 
@@ -7,7 +8,7 @@ const AppointmentList = (props) => {
     const appointmentListElement = (appointment, index) => {
         return (
             <tr key={index}>
-                <td>{appointment.dateTime}</td>
+                <td><Link link={`/appointments/${appointment.id}/`}>{appointment.dateTime}</Link></td>
                 <td>{appointment.clientName}</td>
                 <td>{appointment.duration}</td>
             </tr>

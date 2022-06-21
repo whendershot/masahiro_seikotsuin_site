@@ -55,5 +55,5 @@ services:
         cd /code/masahiro_seikotsuin_site/client_server/client  &&
         npx frontity dev & &&
         cd /code/masahiro_seikotsuin_site/server && 
-        node server.js
+        nodemon server.js
       "

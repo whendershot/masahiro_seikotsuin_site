@@ -17,6 +17,7 @@ import Loading from "./loading.view"
 
 import AppointmentListView from "./appointment/AppointmentList.view"
 import AppointmentCreateView from "./appointment/AppointmentCreate.view"
+import AppointmentDetailsView from "./appointment/AppointmentDetails.view"
 
 const Root = ({state}) => {
     const data = state.source.get(state.router.link)
@@ -84,6 +85,7 @@ const Root = ({state}) => {
                 <Switch>
                     <AppointmentListView when={state.router.link === "/appointments/"}></AppointmentListView>
                     <AppointmentCreateView when={state.router.link === "/appointments/create/"}></AppointmentCreateView>
+                    <AppointmentDetailsView when={data.isAppointment}></AppointmentDetailsView>
                     <Loading when={data.isFetching}></Loading>
                     <List when={data.isArchive}></List>
                     <Post when={data.isPost}></Post>
